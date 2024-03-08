@@ -14,32 +14,19 @@ class DashboardScreen extends StatefulWidget {
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen>
-{
-
-  String timeText = "";
+class _DashboardScreenState extends State<DashboardScreen> {
   String dateText = "";
 
-  String formatCurrentLiveTime(DateTime time)
-  {
-    return DateFormat("hh:mm:ss a").format(time);
-  }
-
-  String formatCurrentDate(DateTime date)
-  {
+  String formatCurrentDate(DateTime date) {
     return DateFormat("dd MMMM, yyyy").format(date);
   }
 
-  getCurrentLiveTime()
-  {
+  getCurrentLiveTime() {
     final DateTime timeNow = DateTime.now();
-    final String liveTime = formatCurrentLiveTime(timeNow);
     final String liveDate = formatCurrentDate(timeNow);
 
-    if(this.mounted)
-    {
+    if (this.mounted) {
       setState(() {
-        timeText = liveTime;
         dateText = liveDate;
       });
     }
@@ -52,14 +39,10 @@ class _DashboardScreenState extends State<DashboardScreen>
   void initState() {
     super.initState();
 
-    //time
-    timeText = formatCurrentLiveTime(DateTime.now());
-
     //date
     dateText = formatCurrentDate(DateTime.now());
 
-    Timer.periodic(const Duration(seconds: 1), (timer)
-    {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       getCurrentLiveTime();
     });
 
@@ -72,38 +55,26 @@ class _DashboardScreenState extends State<DashboardScreen>
       flexibleSpace: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: [
-                Colors.black,
-                Colors.black87,
-              ],
-              begin: FractionalOffset(0, 0),
-              end: FractionalOffset(1, 0),
-              stops: [0, 1],
-              tileMode: TileMode.clamp),
+            colors: [
+              Colors.black,
+              Colors.black87,
+            ],
+            begin: FractionalOffset(0, 0),
+            end: FractionalOffset(1, 0),
+            stops: [0, 1],
+            tileMode: TileMode.clamp,
+          ),
         ),
       ),
       automaticallyImplyLeading: false,
-      title: Column(
-        children: [
-          const Text(
-            "Para Admin Web Portal",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              letterSpacing: 3,
-            ),
-          ),
-
-          Text(
-            timeText,
-            style: const TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              letterSpacing: 3
-            ),
-          )
-        ],
+      title: const Text(
+        "Para Admin Web Portal",
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          letterSpacing: 3,
+        ),
       ),
       centerTitle: true,
     ),

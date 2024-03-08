@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:para_web_admin_portal/mainScreen/dashboard_screen.dart';
+import 'package:para_web_admin_portal/mainScreen/view_driver_request_information.dart';
+import 'package:para_web_admin_portal/mainScreen/view_drivers_information.dart';
 import 'package:para_web_admin_portal/tabPages/accounts_tab.dart';
 
 
@@ -51,7 +53,10 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
                 {
                   Navigator.pop(context);
                 },
-                child: const Text("No"),
+                child: const Text("No", style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Anta"
+                ),),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -86,7 +91,11 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   });
                 },
-                child: const Text("Yes"),
+                child: const Text("Yes",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "Anta"
+                  ),),
               ),
             ],
           );
@@ -124,7 +133,7 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
           itemBuilder: (context, i)
           {
             return SizedBox(
-              height: 110,
+              height: 120,
               child: Card(
                 child: Column(
                   children: [
@@ -162,29 +171,50 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
                             ),
                           ],
                         ),
-                        trailing: ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.green
-                          ),
-                          icon: const Icon(
-                            Icons.person_pin_sharp,
-                            color: Colors.white,
-                          ),
-                          label: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              "Verify".toUpperCase() + "\n" + "Account".toUpperCase(),
-                              style: const TextStyle(
-                                fontSize: 11,
-                                color: Colors.white,
-                                letterSpacing: 3,
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.green, // Button background color
+                                borderRadius: BorderRadius.circular(5), // Button border radius
+                              ),
+                              child: IconButton(
+                                icon: const Icon(
+                                  Icons.check,
+                                  color: Colors.white, // Icon color
+                                ),
+                                onPressed: () {
+                                  displayDialogBoxForRequestAccounts(allRequestAccount!.docs[i].id);
+                                },
                               ),
                             ),
-                          ),
-                          onPressed: ()
-                          {
-                            displayDialogBoxForRequestAccounts(allRequestAccount!.docs[i].id);
-                          },
+
+                            const SizedBox(width: 10,),
+
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Color(0xFFFFD600), // Button background color
+                                borderRadius: BorderRadius.circular(5), // Button border radius
+                              ),
+                              child: IconButton(
+                                icon: const Icon(
+                                  Icons.remove_red_eye_outlined,
+                                  color: Colors.white, // Icon color
+                                ),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (c) => ViewDriverRequestAccount(
+                                    driverName: allRequestAccount!.docs[i].get("driverName"),
+                                    driverEmail: allRequestAccount!.docs[i].get("driverEmail"),
+                                    driverPhotoUrl: allRequestAccount!.docs[i].get("driverPhotoUrl"),
+                                    plate_number: allRequestAccount!.docs[i].get("vehicle_details.plate_number"),
+                                    vehicle_color: allRequestAccount!.docs[i].get("vehicle_details.vehicle_color"),
+                                    vehicle_model: allRequestAccount!.docs[i].get("vehicle_details.vehicle_model"),
+                                  )));
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

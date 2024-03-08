@@ -39,7 +39,13 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text("No"),
+              child: const Text(
+                  "No",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Anta"
+                ),
+              ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
@@ -62,7 +68,14 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
                   }
                 });
               },
-              child: const Text("Yes"),
+              child: const Text(
+                  "Yes",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Anta"
+                ),
+
+              ),
             ),
           ],
         );
@@ -74,7 +87,7 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
   void initState() {
     super.initState();
 
-    FirebaseFirestore.instance.collection("drivers").where("status", isEqualTo: "approved").get().then((allVerifiedDrivers) {
+    FirebaseFirestore.instance.collection("drivers").get().then((allVerifiedDrivers) {
       if (!_isDisposed) {
         setState(() {
           allDrivers = allVerifiedDrivers;
@@ -91,7 +104,7 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
         itemCount: allDrivers!.docs.length,
         itemBuilder: (context, i) {
           return SizedBox(
-            height: 110,
+            height: 120,
             child: Card(
               child: Column(
                 children: [
@@ -127,50 +140,67 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(primary: Colors.lightGreen),
-                            icon: const Icon(
-                              Icons.remove_red_eye_outlined,
-                              color: Colors.white,
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFFD600), // Button background color
+                              borderRadius: BorderRadius.circular(5), // Button border radius
                             ),
-                            label: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                "View".toUpperCase() + "\n" + "Account".toUpperCase(),
-                                style: const TextStyle(fontSize: 11, color: Colors.white, letterSpacing: 3),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.remove_red_eye_outlined,
+                                color: Colors.white, // Icon color
                               ),
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (c) => ViewDriversAccount(
+                                  driverName: allDrivers!.docs[i].get("driverName"),
+                                  driverEmail: allDrivers!.docs[i].get("driverEmail"),
+                                  driverPhotoUrl: allDrivers!.docs[i].get("driverPhotoUrl"),
+                                  plate_number: allDrivers!.docs[i].get("vehicle_details.plate_number"),
+                                  vehicle_color: allDrivers!.docs[i].get("vehicle_details.vehicle_color"),
+                                  vehicle_model: allDrivers!.docs[i].get("vehicle_details.vehicle_model"),
+                                  overallRatings: allDrivers!.docs[i].get("overallRatings"),
+                                )));
+                              },
                             ),
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (c) => ViewDriversAccount(
-                                driverName: allDrivers!.docs[i].get("driverName"),
-                                driverEmail: allDrivers!.docs[i].get("driverEmail"),
-                                driverPhotoUrl: allDrivers!.docs[i].get("driverPhotoUrl"),
-                                plate_number: allDrivers!.docs[i].get("vehicle_details.plate_number"),
-                                vehicle_color: allDrivers!.docs[i].get("vehicle_details.vehicle_color"),
-                                vehicle_model: allDrivers!.docs[i].get("vehicle_details.vehicle_model"),
-                              )));
-                            },
                           ),
                           const SizedBox(width: 10,),
-                          ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(primary: Colors.red),
-                            icon: const Icon(
-                              Icons.block_outlined,
-                              color: Colors.white,
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.lightGreen, // Button background color
+                              borderRadius: BorderRadius.circular(5), // Button border radius
                             ),
-                            label: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                "Block".toUpperCase() + "\n" + "Account".toUpperCase(),
-                                style: const TextStyle(fontSize: 11, color: Colors.white, letterSpacing: 3),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.attach_money,
+                                color: Colors.white, // Icon color
                               ),
+                              onPressed: () {
+                                // Handle earnings button press
+                              },
                             ),
-                            onPressed: () {
-                              displayDialogBoxForBlockingAccounts(allDrivers!.docs[i].id);
-                            },
                           ),
+                          const SizedBox(width: 10,),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.red, // Button background color
+                              borderRadius: BorderRadius.circular(5), // Button border radius
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.block_outlined,
+                                color: Colors.white, // Icon color
+                              ),
+                              onPressed: () {
+                                displayDialogBoxForBlockingAccounts(allDrivers!.docs[i].id);
+                              },
+                            ),
+                          ),
+
                         ],
                       ),
+
+
+
                     ),
                   ),
                 ],

@@ -51,7 +51,11 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
                 {
                   Navigator.pop(context);
                 },
-                child: const Text("No"),
+                child: const Text("No",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Anta"
+                ),),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -86,7 +90,11 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   });
                 },
-                child: const Text("Yes"),
+                child: const Text("Yes",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "Anta"
+                  ),),
               ),
             ],
           );
@@ -124,7 +132,7 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
           itemBuilder: (context, i)
           {
             return SizedBox(
-              height: 110,
+              height: 120,
               child: Card(
                 child: Column(
                   children: [
@@ -162,29 +170,20 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
                             ),
                           ],
                         ),
-                        trailing: ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.green,
+                        trailing: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.green, // Button background color
+                            borderRadius: BorderRadius.circular(5), // Button border radius
                           ),
-                          icon: const Icon(
-                            Icons.person_pin_sharp,
-                            color: Colors.white,
-                          ),
-                          label: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              "Unblock".toUpperCase() + "\n" + "Account".toUpperCase(),
-                              style: const TextStyle(
-                                fontSize: 11,
-                                color: Colors.white,
-                                letterSpacing: 3,
-                              ),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.check,
+                              color: Colors.white, // Icon color
                             ),
+                            onPressed: () {
+                              displayDialogBoxForUnblockingAccounts(allDrivers!.docs[i].id);
+                            },
                           ),
-                          onPressed: ()
-                          {
-                            displayDialogBoxForUnblockingAccounts(allDrivers!.docs[i].id);
-                          },
                         ),
                       ),
                     ),

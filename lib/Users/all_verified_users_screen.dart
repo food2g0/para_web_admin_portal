@@ -51,7 +51,13 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
                 {
                   Navigator.pop(context);
                 },
-                child: const Text("No"),
+                child: const Text(
+                    "No",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Anta"
+                  ),
+                ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -86,7 +92,13 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 });
               },
-              child: const Text("Yes"),
+              child: const Text(
+                  "Yes",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Anta"
+                ),
+              ),
             ),
           ],
         );
@@ -124,7 +136,7 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
           itemBuilder: (context, i)
           {
             return SizedBox(
-              height: 110,
+              height: 120,
               child: Card(
                 child: Column(
                   children: [
@@ -162,30 +174,21 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
                              ),
                            ],
                          ),
-                         trailing: ElevatedButton.icon(
-                               style: ElevatedButton.styleFrom(
-                                 primary: Colors.red
-                               ),
-                               icon: const Icon(
-                                 Icons.block_outlined,
-                                 color: Colors.white,
-                               ),
-                               label: Padding(
-                                 padding: const EdgeInsets.all(10.0),
-                                 child: Text(
-                                   "Block".toUpperCase() + "\n" + "Account".toUpperCase(),
-                                   style: const TextStyle(
-                                     fontSize: 11,
-                                     color: Colors.white,
-                                     letterSpacing: 3,
-                                   ),
-                                 ),
-                               ),
-                               onPressed: ()
-                               {
-                                 displayDialogBoxForBlockingAccounts(allUsers!.docs[i].id);
-                               },
+                         trailing: Container(
+                           decoration: BoxDecoration(
+                             color: Colors.red, // Button background color
+                             borderRadius: BorderRadius.circular(5), // Button border radius
+                           ),
+                           child: IconButton(
+                             icon: const Icon(
+                               Icons.block_outlined,
+                               color: Colors.white, // Icon color
                              ),
+                             onPressed: () {
+                               displayDialogBoxForBlockingAccounts(allUsers!.docs[i].id);
+                             },
+                           ),
+                         ),
 
                        ),
                      ),
