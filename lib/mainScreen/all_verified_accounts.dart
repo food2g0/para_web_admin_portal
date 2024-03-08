@@ -32,7 +32,8 @@ class _AllVerifiedAccountsState extends State<AllVerifiedAccounts> {
           indicatorWeight: 6,
           labelColor: Colors.black,
           labelStyle: TextStyle(
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+            fontFamily: "Anta"
           ),
           unselectedLabelColor: Colors.black54,
         ),

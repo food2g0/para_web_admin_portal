@@ -32,7 +32,8 @@ class _AllBlockedUsersScreenState extends State<AllBlockedUsersScreen>
               style: TextStyle(
                   fontSize: 25,
                   letterSpacing: 2,
-                  fontWeight: FontWeight.bold
+                  fontWeight: FontWeight.bold,
+                fontFamily: "PoppinsSemi"
               ),
             ),
             content: const Text(
@@ -40,6 +41,7 @@ class _AllBlockedUsersScreenState extends State<AllBlockedUsersScreen>
               style: TextStyle(
                 fontSize: 16,
                 letterSpacing: 2,
+                fontFamily: "PoppinsReg"
               ),
             ),
             actions: [
@@ -162,25 +164,27 @@ class _AllBlockedUsersScreenState extends State<AllBlockedUsersScreen>
                               allUsers!.docs[i].get("userName"),
                               style: const TextStyle(
                                   fontSize: 20,
-                                  fontWeight: FontWeight.bold
+                                  fontWeight: FontWeight.bold,
+                                fontFamily: "PoppinsReg"
                                   ),
                             ),
                             Text(
                               allUsers!.docs[i].get("userEmail"),
                               style: const TextStyle(
                                 fontSize: 16,
+                                fontFamily: "PoppinsReg"
                               ),
                             ),
                           ],
                         ),
                         trailing: Container(
                           decoration: BoxDecoration(
-                            color: Colors.red, // Button background color
+                            color: Colors.green, // Button background color
                             borderRadius: BorderRadius.circular(5), // Button border radius
                           ),
                           child: IconButton(
                             icon: const Icon(
-                              Icons.block_outlined,
+                              Icons.check,
                               color: Colors.white, // Icon color
                             ),
                             onPressed: () {
@@ -204,6 +208,7 @@ class _AllBlockedUsersScreenState extends State<AllBlockedUsersScreen>
             "No Record Found",
             style: TextStyle(
               fontSize: 30,
+              fontFamily: "PoppinsReg"
             ),
           ),
         );

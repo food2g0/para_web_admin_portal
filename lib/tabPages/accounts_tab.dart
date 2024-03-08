@@ -36,7 +36,8 @@ class _AccountsTabPageState extends State<AccountsTabPage> {
           indicatorWeight: 6,
           labelColor: Colors.black,
           labelStyle: TextStyle(
-            fontWeight: FontWeight.bold
+            fontWeight: FontWeight.bold,
+            fontFamily: "Anta"
           ),
           unselectedLabelColor: Colors.black54,
 

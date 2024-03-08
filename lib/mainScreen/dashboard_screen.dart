@@ -15,22 +15,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  String dateText = "";
-
-  String formatCurrentDate(DateTime date) {
-    return DateFormat("dd MMMM, yyyy").format(date);
-  }
-
-  getCurrentLiveTime() {
-    final DateTime timeNow = DateTime.now();
-    final String liveDate = formatCurrentDate(timeNow);
-
-    if (this.mounted) {
-      setState(() {
-        dateText = liveDate;
-      });
-    }
-  }
 
   int _selectedIndex = 0;
   bool isExtended = false;
@@ -39,12 +23,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void initState() {
     super.initState();
 
-    //date
-    dateText = formatCurrentDate(DateTime.now());
-
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      getCurrentLiveTime();
-    });
 
     _selectedIndex = 0; // Initialize _selectedIndex
   }
@@ -74,6 +52,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           fontWeight: FontWeight.bold,
           color: Colors.white,
           letterSpacing: 3,
+          fontFamily: "Anta"
         ),
       ),
       centerTitle: true,
@@ -127,7 +106,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   SizedBox(width: 12),
                   Text(
                     "Logout",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white, fontFamily: "Anta"),
                   ),
                 ],
               ),
@@ -147,15 +126,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
           destinations: const [
             NavigationRailDestination(
               icon: Icon(Icons.home),
-              label: Text("Home"),
+              label: Text(
+                  "Home",
+              style: TextStyle(
+                fontFamily: "Anta"
+              ),
+              ),
             ),
             NavigationRailDestination(
               icon: Icon(Icons.account_circle_rounded),
-              label: Text("Accounts"),
+              label: Text("Accounts",
+                style: TextStyle(
+                    fontFamily: "Anta"
+                ),),
             ),
             NavigationRailDestination( // Add the new tab
               icon: Icon(Icons.star),
-              label: Text("Ratings"),
+              label: Text("Ratings",
+                style: TextStyle(
+                    fontFamily: "Anta"
+                ),),
             ),
           ],
         ),

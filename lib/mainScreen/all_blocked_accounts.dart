@@ -22,7 +22,7 @@ class _AllBlockedAccountsState extends State<AllBlockedAccounts> {
         appBar: const TabBar(
           tabs: [
             Tab(
-              text: "Commuters",
+              text: "Commuters"
             ),
             Tab(
               text: "Drivers",
@@ -32,7 +32,8 @@ class _AllBlockedAccountsState extends State<AllBlockedAccounts> {
           indicatorWeight: 6,
           labelColor: Colors.black,
           labelStyle: TextStyle(
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+            fontFamily: "Anta"
           ),
           unselectedLabelColor: Colors.black54,
         ),

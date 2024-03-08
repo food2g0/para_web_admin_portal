@@ -31,7 +31,7 @@ class RatingTabPage extends StatelessWidget {
                 Center(
                   child: Text(
                     'Overall Rating:',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Poppins"),
                   ),
                 ),
                 SizedBox(height: 8),
@@ -50,7 +50,7 @@ class RatingTabPage extends StatelessWidget {
                 SizedBox(height: 20),
                 Text(
                   'Feedback: ',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Poppins"),
                 ),
                 SizedBox(height: 10),
                 Expanded(
@@ -89,28 +89,46 @@ class MemoizedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Ratings: $rating"),
-            SmoothStarRating(
-              rating: rating,
-              size: 30,
-              filledIconData: Icons.star,
-              halfFilledIconData: Icons.star_half,
-              defaultIconData: Icons.star_border,
-              color: Colors.yellow,
-              borderColor: Colors.yellow,
-              spacing: 0.0,
-            ),
-            SizedBox(height: 10),
-            Text("Comment:"),
-            SizedBox(height: 5),
-            Text(comment),
-          ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Ratings :  $rating \/ 5",
+              style: TextStyle(
+                fontFamily: "PoppinsReg"
+              ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: SmoothStarRating(
+                  rating: rating,
+                  size: 30,
+                  filledIconData: Icons.star,
+                  halfFilledIconData: Icons.star_half,
+                  defaultIconData: Icons.star_border,
+                  color: Colors.yellow,
+                  borderColor: Colors.yellow,
+                  spacing: 0.0,
+                ),
+              ),
+              SizedBox(height: 30),
+              Text("Comment :",
+              style: TextStyle(
+                fontFamily: "PoppinsReg"
+              ),),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(comment, style: TextStyle(
+                  fontFamily: "PoppinsReg"
+                ),),
+              ),
+            ],
+          ),
         ),
       ),
     );

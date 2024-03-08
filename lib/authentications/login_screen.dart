@@ -293,6 +293,7 @@ class _LoginScreenState extends State<LoginScreen>
                                   fontSize: 16,
                                   letterSpacing: 2,
                                   color: Colors.white,
+                                  fontFamily: "Anta"
                                 ),
                               ),
                             ),

@@ -32,7 +32,8 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
             style: TextStyle(
               fontSize: 25,
               letterSpacing: 2,
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+              fontFamily: "PoppinsSemi"
             ),
           ),
           content: const Text(
@@ -40,6 +41,7 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
             style: TextStyle(
                 fontSize: 16,
                 letterSpacing: 2,
+              fontFamily: "PoppinsReg"
             ),
           ),
           actions: [
@@ -84,6 +86,7 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
                       style: TextStyle(
                         fontSize: 36,
                         color: Colors.black,
+                        fontFamily: "Poppins"
                       ),
                     ),
                     backgroundColor: Colors.greenAccent,
@@ -163,13 +166,15 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
                                  allUsers!.docs[i].get("userName"),
                                style: const TextStyle(
                                  fontSize: 20,
-                                 fontWeight: FontWeight.bold
+                                 fontWeight: FontWeight.bold,
+                                 fontFamily: "PoppinsReg"
                                ),
                              ),
                              Text(
                                allUsers!.docs[i].get("userEmail"),
                                style: const TextStyle(
                                  fontSize: 16,
+                                 fontFamily: "PoppinsReg"
                                ),
                              ),
                            ],
@@ -206,6 +211,7 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
             "No Record Found",
             style: TextStyle(
               fontSize: 30,
+              fontFamily: "PoppinsReg"
             ),
           ),
         );

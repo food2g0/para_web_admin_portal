@@ -27,11 +27,11 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
         return AlertDialog(
           title: const Text(
             "Block Account",
-            style: TextStyle(fontSize: 25, letterSpacing: 2, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 25, letterSpacing: 2, fontWeight: FontWeight.bold, fontFamily: "PoppinsSemi"),
           ),
           content: const Text(
             "Do you want to block this account?",
-            style: TextStyle(fontSize: 16, letterSpacing: 2),
+            style: TextStyle(fontSize: 16, letterSpacing: 2, fontFamily: "PoppinsReg"),
           ),
           actions: [
             ElevatedButton(
@@ -59,7 +59,7 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
                     SnackBar snackBar = const SnackBar(
                       content: Text(
                         "Blocked Successfully.",
-                        style: TextStyle(fontSize: 36, color: Colors.black),
+                        style: TextStyle(fontSize: 36, color: Colors.black, fontFamily: "PoppinsSemi"),
                       ),
                       backgroundColor: Colors.greenAccent,
                       duration: Duration(seconds: 3),
@@ -129,11 +129,12 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
                         children: [
                           Text(
                             allDrivers!.docs[i].get("driverName"),
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold,
+                            fontFamily: "PoppinsReg"),
                           ),
                           Text(
                             allDrivers!.docs[i].get("driverEmail"),
-                            style: const TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16, fontFamily: "PoppinsReg"),
                           ),
                         ],
                       ),
@@ -214,7 +215,10 @@ class _AllVerifiedDriversScreenState extends State<AllVerifiedDriversScreen> {
       return const Center(
         child: Text(
           "No Record Found",
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(
+              fontSize: 30,
+            fontFamily: "PoppinsReg"
+          ),
         ),
       );
     }

@@ -85,6 +85,30 @@ flutter:
     - family: ProtestRiot
       fonts:
         - asset: fonts/ProtestRiot-Regular.ttf
+
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
+
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Black.ttf
+
+    - family: Anta
+      fonts:
+        - asset: fonts/Anta-Regular.ttf
+
+    - family: PoppinsReg
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
+
+    - family: PoppinsSemi
+      fonts:
+        - asset: fonts/Poppins-SemiBold.ttf
+
+    - family: Kavoon
+      fonts:
+        - asset: fonts/Kavoon-Regular.ttf
   # - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

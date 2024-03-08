@@ -75,11 +75,17 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                                 children: [
                                   Text(
                                     'Name:',
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "PoppinsSemi",
+                                    ),
                                   ),
                                   Text(
                                     '${widget.driverName}',
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "PoppinsReg",
+                                    ),
                                   ),
                                 ],
                               ),
@@ -95,11 +101,17 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                                 children: [
                                   Text(
                                     'Email:',
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "PoppinsSemi",
+                                    ),
                                   ),
                                   Text(
                                     '${widget.driverEmail}',
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "PoppinsReg",
+                                    ),
                                   ),
                                 ],
                               ),
@@ -116,11 +128,17 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                                   children: [
                                     Text(
                                       'Plate Number:',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: "PoppinsSemi",
+                                      ),
                                     ),
                                     Text(
                                       '${widget.plate_number}',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: "PoppinsReg",
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -137,11 +155,17 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                                   children: [
                                     Text(
                                       'Vehicle Color:',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: "PoppinsSemi",
+                                      ),
                                     ),
                                     Text(
                                       '${widget.vehicle_color}',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: "PoppinsReg",
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -158,11 +182,17 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                                   children: [
                                     Text(
                                       'Vehicle Model:',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: "PoppinsSemi",
+                                      ),
                                     ),
                                     Text(
                                       '${widget.vehicle_model}',
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: "PoppinsReg",
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -178,7 +208,10 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                                 children: [
                                   Text(
                                     'Ratings:',
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "PoppinsSemi",
+                                    ),
                                   ),
                                   SmoothStarRating(
                                     rating: double.parse(widget.overallRatings),
@@ -206,10 +239,6 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                 ),
               ),
             ),
-
-
-
-
           ],
         ),
       ),

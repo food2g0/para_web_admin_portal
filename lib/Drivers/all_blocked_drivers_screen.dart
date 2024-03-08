@@ -30,16 +30,18 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
             title: const Text(
               "Unblock Account",
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 20,
                   letterSpacing: 2,
-                  fontWeight: FontWeight.bold
+                  fontWeight: FontWeight.bold,
+                fontFamily: "PoppinsSemi"
               ),
             ),
             content: const Text(
               "Do you want to unblock this account?",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 15,
                 letterSpacing: 2,
+                fontFamily: "PoppinsReg"
               ),
             ),
             actions: [
@@ -82,6 +84,7 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
                         style: TextStyle(
                           fontSize: 36,
                           color: Colors.black,
+                          fontFamily: "PoppinsSemi"
                         ),
                       ),
                       backgroundColor: Colors.greenAccent,
@@ -160,12 +163,14 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: "PoppinsReg"
                               ),
                             ),
                             Text(
                               allDrivers!.docs[i].get("driverEmail"),
                               style: const TextStyle(
                                 fontSize: 16,
+                                fontFamily: "PoppinsReg"
                               ),
                             ),
                           ],
@@ -201,6 +206,7 @@ class _AllBlockedDriversScreenState extends State<AllBlockedDriversScreen>
             "No Record Found",
             style: TextStyle(
               fontSize: 30,
+            fontFamily: "PoppinsReg"
             ),
           ),
         );

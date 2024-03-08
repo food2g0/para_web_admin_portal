@@ -34,7 +34,8 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
               style: TextStyle(
                   fontSize: 25,
                   letterSpacing: 2,
-                  fontWeight: FontWeight.bold
+                  fontWeight: FontWeight.bold,
+                fontFamily: "PoppinsSemi"
               ),
             ),
             content: const Text(
@@ -42,6 +43,7 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
               style: TextStyle(
                 fontSize: 16,
                 letterSpacing: 2,
+                fontFamily: "PoppinsReg"
               ),
             ),
             actions: [
@@ -83,6 +85,7 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
                         style: TextStyle(
                           fontSize: 36,
                           color: Colors.black,
+                          fontFamily: "PoppinsSemi"
                         ),
                       ),
                       backgroundColor: Colors.greenAccent,
@@ -160,13 +163,15 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
                               allRequestAccount!.docs[i].get("driverName"),
                               style: const TextStyle(
                                   fontSize: 20,
-                                  fontWeight: FontWeight.bold
+                                  fontWeight: FontWeight.bold,
+                                fontFamily: "PoppinsReg"
                               ),
                             ),
                             Text(
                               allRequestAccount!.docs[i].get("driverEmail"),
                               style: const TextStyle(
                                 fontSize: 16,
+                                fontFamily: "PoppinsReg"
                               ),
                             ),
                           ],
@@ -174,23 +179,6 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Colors.green, // Button background color
-                                borderRadius: BorderRadius.circular(5), // Button border radius
-                              ),
-                              child: IconButton(
-                                icon: const Icon(
-                                  Icons.check,
-                                  color: Colors.white, // Icon color
-                                ),
-                                onPressed: () {
-                                  displayDialogBoxForRequestAccounts(allRequestAccount!.docs[i].id);
-                                },
-                              ),
-                            ),
-
-                            const SizedBox(width: 10,),
 
                             Container(
                               decoration: BoxDecoration(
@@ -214,6 +202,24 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
                                 },
                               ),
                             ),
+
+                            const SizedBox(width: 10,),
+
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.green, // Button background color
+                                borderRadius: BorderRadius.circular(5), // Button border radius
+                              ),
+                              child: IconButton(
+                                icon: const Icon(
+                                  Icons.check,
+                                  color: Colors.white, // Icon color
+                                ),
+                                onPressed: () {
+                                  displayDialogBoxForRequestAccounts(allRequestAccount!.docs[i].id);
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -232,6 +238,7 @@ class _AllRegistrationRequestState extends State<AllRegistrationRequest>
             "No Record Found",
             style: TextStyle(
               fontSize: 30,
+              fontFamily: "PoppinsReg",
             ),
           ),
         );
