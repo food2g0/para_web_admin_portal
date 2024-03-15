@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:para_web_admin_portal/authentications/login_screen.dart';
-import 'package:para_web_admin_portal/tabPages/accounts_tab.dart';
 import 'package:para_web_admin_portal/tabPages/home_tab.dart';
 import 'package:para_web_admin_portal/tabPages/rating_tab.dart';
 
@@ -133,13 +132,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
               ),
             ),
-            NavigationRailDestination(
-              icon: Icon(Icons.account_circle_rounded),
-              label: Text("Accounts",
-                style: TextStyle(
-                    fontFamily: "Anta"
-                ),),
-            ),
+
             NavigationRailDestination( // Add the new tab
               icon: Icon(Icons.star),
               label: Text("Ratings",
@@ -158,12 +151,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
     switch (_selectedIndex) {
       case 0:
         return HomeTabPage();
-      case 1:
-        return AccountsTabPage();
-      case 2: // Add handling for the new tab
+      case 1: // Add handling for the new tab
         return RatingTabPage();
       default:
-        return AccountsTabPage();
+        return HomeTabPage();
     }
   }
 }

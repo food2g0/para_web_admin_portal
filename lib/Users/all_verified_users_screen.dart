@@ -20,6 +20,7 @@ class _AllVerifiedUsersScreenState extends State<AllVerifiedUsersScreen>
 {
   QuerySnapshot? allUsers;
 
+
   displayDialogBoxForBlockingAccounts(userDocumentID)
   {
     return showDialog(

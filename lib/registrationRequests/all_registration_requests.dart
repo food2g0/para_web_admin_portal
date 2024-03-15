@@ -2,8 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:para_web_admin_portal/mainScreen/dashboard_screen.dart';
 import 'package:para_web_admin_portal/mainScreen/view_driver_request_information.dart';
-import 'package:para_web_admin_portal/mainScreen/view_drivers_information.dart';
-import 'package:para_web_admin_portal/tabPages/accounts_tab.dart';
+
 
 
 

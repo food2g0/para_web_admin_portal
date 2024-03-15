@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating_nsafe/smooth_star_rating.dart';
 
 class ViewDriversAccount extends StatefulWidget {
   final String driverName;
@@ -8,30 +7,28 @@ class ViewDriversAccount extends StatefulWidget {
   final String plate_number;
   final String vehicle_color;
   final String vehicle_model;
-  final String overallRatings;
 
   ViewDriversAccount({
     required this.driverName,
     required this.driverEmail,
     required this.driverPhotoUrl,
-    required this.overallRatings,
     required this.plate_number,
     required this.vehicle_color,
     required this.vehicle_model,
   });
 
   @override
-  State<ViewDriversAccount> createState() => _ViewDriversAccountState();
+  State<ViewDriversAccount> createState() => _ViewDriverRequestAccountState();
 }
 
-class _ViewDriversAccountState extends State<ViewDriversAccount> {
+class _ViewDriverRequestAccountState extends State<ViewDriversAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: const Text(
-          "Commuter's Account",
+          "Driver Information",
           style: TextStyle(
             color: Colors.white,
             fontFamily: "Anta",
@@ -197,40 +194,6 @@ class _ViewDriversAccountState extends State<ViewDriversAccount> {
                                   ],
                                 ),
                               ),
-                            VerticalDivider(
-                              color: Colors.black,
-                              thickness: 1.0,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 40.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Ratings:',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: "PoppinsSemi",
-                                    ),
-                                  ),
-                                  SmoothStarRating(
-                                    rating: double.parse(widget.overallRatings),
-                                    size: 30,
-                                    filledIconData: Icons.star,
-                                    halfFilledIconData: Icons.star_half,
-                                    defaultIconData: Icons.star_border,
-                                    color: Colors.yellow,
-                                    borderColor: Colors.black,
-                                    starCount: 5,
-                                    allowHalfRating: true,
-                                    spacing: 2.0,
-                                    onRatingChanged: (value) {
-                                      // Handle the rated value if needed
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ),
                           ],
                         ),
                       ),

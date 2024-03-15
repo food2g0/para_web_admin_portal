@@ -23,6 +23,15 @@ class RatingTabPage extends StatelessWidget {
           final overallRating = data['overallRating'] as double? ?? 0.0;
           final ratings = data['ratings'] as Map<String, dynamic>? ?? {};
 
+          if (ratings.isEmpty) {
+            return Center(
+              child: Text(
+                'No ratings yet.',
+                style: TextStyle(fontSize: 40, fontFamily: "PoppinsReg"),
+              ),
+            );
+          }
+
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -98,9 +107,9 @@ class MemoizedCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Ratings :  $rating \/ 5",
-              style: TextStyle(
-                fontFamily: "PoppinsReg"
-              ),
+                style: TextStyle(
+                    fontFamily: "PoppinsReg"
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
@@ -117,14 +126,14 @@ class MemoizedCard extends StatelessWidget {
               ),
               SizedBox(height: 30),
               Text("Comment :",
-              style: TextStyle(
-                fontFamily: "PoppinsReg"
-              ),),
+                style: TextStyle(
+                    fontFamily: "PoppinsReg"
+                ),),
               SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(comment, style: TextStyle(
-                  fontFamily: "PoppinsReg"
+                    fontFamily: "PoppinsReg"
                 ),),
               ),
             ],

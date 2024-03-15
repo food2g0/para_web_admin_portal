@@ -29,7 +29,7 @@ class _ViewDriverRequestAccountState extends State<ViewDriverRequestAccount> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: const Text(
-          "Driver Verification",
+          "Driver Information",
           style: TextStyle(
             color: Colors.white,
             fontFamily: "Anta",
